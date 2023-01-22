@@ -1,0 +1,514 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color:#DBA069;
+  --bg-color2:#842231;
+  --blocj-color: #8422310D ;
+}
+
+body._lock {
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+* img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.mainTitle {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.188rem, 1.892rem + 1.48vw, 3rem);
+  line-height: 58px;
+  color: #333333;
+}
+
+.headTitle {
+  font-family: "Fira Sans";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-family: "Fira Sans";
+  font-weight: 300;
+  font-size: clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem);
+  line-height: 110%;
+  color: #333333;
+}
+
+.big {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 128px;
+  line-height: 83.7%;
+  /* or 107px */
+  color: #FFFFFF;
+}
+
+[class*=__container] {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.2s ease;
+}
+.header.fixed {
+  position: fixed;
+  transform: translateY(100px);
+  background-color: rgb(73, 73, 73);
+  top: -100px;
+}
+.header_logo {
+  max-width: 144px;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+}
+
+.menu__body {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.563rem, 1.025rem + 2.69vw, 3.125rem);
+}
+@media (max-width: 992px) {
+  .menu__body {
+    flex-direction: column;
+    margin: auto;
+    padding-top: 20px;
+  }
+}
+
+.menu__link {
+  font-family: "Fira Sans";
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  position: relative;
+}
+@media (max-width: 992px) {
+  .menu__link {
+    font-size: 25px;
+  }
+}
+.menu__link:before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-color);
+  height: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+@media (any-hover: hover) {
+  .menu__link:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 992px) {
+  .menu {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 50vh;
+    width: 90vw;
+    display: flex;
+    background-color: rgb(73, 73, 73);
+  }
+}
+.menu._active {
+  left: 0;
+}
+.menu-icon {
+  display: none;
+}
+@media (max-width: 992px) {
+  .menu-icon {
+    display: block;
+    height: 18px;
+    width: 30px;
+    position: relative;
+    cursor: pointer;
+    z-index: 5;
+  }
+  .menu-icon span {
+    transition: all 0.3s ease 0s;
+    top: calc(50% - 1px);
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+  }
+  .menu-icon span:first-child {
+    top: 0;
+  }
+  .menu-icon span:last-child {
+    top: auto;
+    bottom: 0;
+  }
+  .menu-icon._active span {
+    transform: scale(0);
+  }
+  .menu-icon._active span:first-child {
+    transform: rotate(-45deg);
+    top: calc(50% - 1px);
+  }
+  .menu-icon._active span:last-child {
+    transform: rotate(45deg);
+    bottom: calc(50% - 1px);
+  }
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/Фон.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.banner__items {
+  padding-top: 200px;
+  display: flex;
+}
+@media (max-width: 671px) {
+  .banner__items {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+
+.banner__item {
+  color: #fff;
+}
+
+.banner_block2 {
+  display: flex;
+  gap: 20px;
+}
+
+.banner_title {
+  color: #fff;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 15px 30px;
+  border: none;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  font-family: "Fira Sans";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: #333333;
+}
+
+.block_info {
+  display: inline-flex;
+  margin-top: 50px;
+}
+
+.item_div {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-family: "Fira Sans";
+  font-weight: 500;
+}
+
+@media (max-width: 800px) {
+  .item2 {
+    display: none;
+  }
+}
+
+.about {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.about .title_back {
+  height: 100px;
+  padding-top: 100px;
+  background-image: url(../images/О\ проекте.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.about_infos {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+@media (max-width: 1115px) {
+  .about_infos {
+    flex-direction: column;
+  }
+}
+.about .info_items {
+  margin: auto;
+}
+.about .info_items .info_item {
+  padding-bottom: 70px;
+}
+.about .info_items .info_item p {
+  width: clamp(18.75rem, 11.932rem + 34.09vw, 37.5rem);
+}
+.about .info_back3 {
+  height: clamp(15.625rem, 12.216rem + 17.05vw, 25rem);
+  width: clamp(21.875rem, 18.466rem + 17.05vw, 31.25rem);
+  background-image: url(../images/b6a72d46f16e457ccfacf410edc462a6-dots-grid-design-by-vexels\ 1.jpg);
+  position: relative;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.about .info_back1 {
+  height: 300px;
+  width: clamp(18.75rem, 16.477rem + 11.36vw, 25rem);
+  position: absolute;
+  bottom: clamp(3.125rem, 0.852rem + 11.36vw, 9.375rem);
+}
+
+.gallery {
+  background-color: #E5E5E5;
+  height: 613px;
+}
+.gallery__container {
+  padding: 50px;
+}
+.gallery__swiper {
+  position: relative;
+  padding-top: 28px;
+}
+
+.swiper {
+  overflow: hidden;
+}
+.swiper-wrapper {
+  display: inline-flex;
+}
+.swiper .slide_item {
+  display: flex;
+  gap: 20px;
+}
+.swiper .slider_btn {
+  cursor: pointer;
+}
+.swiper .slider_buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+@media (max-width: 992px) {
+  .swiper .slider_buttons {
+    position: static;
+    width: auto;
+  }
+}
+@media (max-width: 660px) {
+  .swiper .slider_buttons {
+    display: none;
+  }
+}
+
+.features {
+  background-image: url(../images/Rectangle\ 6.png);
+  background-position: right;
+}
+.features__container {
+  text-align: center;
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+.features_item {
+  width: clamp(18.75rem, 11.932rem + 34.09vw, 37.5rem);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.features_items {
+  display: flex;
+  gap: 25px;
+  padding-bottom: 30px;
+}
+@media (max-width: 620px) {
+  .features_items {
+    flex-flow: column-reverse;
+    margin: auto;
+  }
+}
+.features_items img {
+  width: clamp(18.75rem, 5.114rem + 68.18vw, 56.25rem);
+}
+.features_info {
+  display: flex;
+  align-items: center;
+}
+.features_info span {
+  font-size: 14px;
+  max-width: 200px;
+}
+.features_info p {
+  font-size: 14px;
+  width: clamp(6.25rem, -2.841rem + 45.45vw, 31.25rem);
+}
+@media (max-width: 620px) {
+  .features_info p {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+}
+.features .features_back {
+  width: clamp(13.75rem, 11.932rem + 9.09vw, 18.75rem);
+  position: absolute;
+  right: 70%;
+  top: 60%;
+}
+
+.technology {
+  padding-top: 100px;
+}
+.technology .technology_title {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  background-image: url(../images/Почему\ NURA\ PREMIER.png);
+  background-repeat: no-repeat;
+  padding-top: 50px;
+}
+.technology .technology__items {
+  display: flex;
+  gap: 100px;
+}
+@media (max-width: 670px) {
+  .technology .technology__items {
+    flex-direction: column;
+  }
+}
+@media (max-width: 670px) {
+  .technology .technology_item {
+    margin: auto;
+  }
+}
+.technology .tech_info2 {
+  padding-top: 80px;
+}
+.technology .technology_item_info {
+  padding-bottom: 50px;
+}
+.technology .technology_item_info p {
+  max-width: clamp(18.75rem, 14.205rem + 22.73vw, 31.25rem);
+}
+
+.card {
+  margin-top: 50px;
+}
+.card__container {
+  position: relative;
+}
+.card__form {
+  padding: 90px 10px;
+  width: clamp(18.75rem, 5.114rem + 68.18vw, 56.25rem);
+  border: 5px solid var(--bg-color2);
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+}
+.card .form {
+  padding-top: 30px;
+}
+.card .form input {
+  border: 0;
+  background-color: #F2F6FA;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.card .card_button {
+  cursor: pointer;
+  padding: 16px 50px;
+  border: 0;
+  background-color: var(--bg-color2);
+  font-family: "Fira Sans";
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 8px;
+}
+.card .card_back {
+  position: absolute;
+  left: 80%;
+  top: 40%;
+}
+
+.payment {
+  margin-top: 40px;
+  margin-bottom: 90px;
+}
+.payment_title {
+  text-align: center;
+  padding-top: 70px;
+  background-image: url(../images/PREMIER.png);
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.payment_items {
+  padding-top: 60px;
+  display: flex;
+  gap: 20px;
+  overflow: auto;
+}
+
+.footer {
+  margin-top: 100px;
+  text-align: center;
+  border-top: 2px solid silver;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}/*# sourceMappingURL=style.css.map */
